@@ -1,0 +1,61 @@
+version: "3.7"
+
+services:
+
+  mysql:
+    image: arm64v8/mysql:8.0.30
+    restart: unless-stopped
+    tty: true
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_HOST: 172.%.%.%
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql/
+      - ./config/mysql/my.cnf:/etc/mysql/my.cnf
+    ports:
+      - 3306:3306
+    networks:
+      - internal
+
+  redis:
+    restart: always
+    tty: true
+    image: redis:alpine
+    ports:
+      - 6379:6379
+    volumes:
+      - ./volumes/redis-data:/data
+    networks:
+      - internal
+
+  meilisearch:
+    image: getmeili/meilisearch:v0.28
+    restart: unless-stopped
+    volumes:
+      - ./volumes/meilisearch:/data.ms
+    ports:
+      - 7700:7700
+    networks:
+      - internal
+
+#  portainer:
+#    image: portainer/portainer-ce:latest
+#    restart: unless-stopped
+#    security_opt:
+#      - no-new-privileges:true
+#    volumes:
+#      - /etc/localtime:/etc/localtime:ro
+#      - /var/run/docker.sock:/var/run/docker.sock:ro
+#      - ./volumes/portainer:/data
+#    ports:
+#      - 8000:8000
+#      - 9000:9000
+
+networks:
+  internal:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.1.0/24
+          gateway: 172.16.1.1
