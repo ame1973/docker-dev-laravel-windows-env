@@ -4,10 +4,14 @@
 
 - **Docker Compose**
 
-- **portainer**
+- **portainer** (optional) 
 
 - mysql
 
 - redis
 
 - meilisearch
+
+---
+
+ARM please `cp docker-compose.arm.yml docker-compose.arm.yml`
