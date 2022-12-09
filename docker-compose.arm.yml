@@ -29,7 +29,7 @@ services:
       - internal
 
   meilisearch:
-    image: getmeili/meilisearch:v0.28
+    image: getmeili/meilisearch:v0.30
     restart: unless-stopped
     volumes:
       - ./volumes/meilisearch:/data.ms
