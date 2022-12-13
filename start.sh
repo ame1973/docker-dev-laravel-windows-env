@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "----------------------------------------"
+
+echo "[INFO] START Laravel base env"
+
 echo "Stop docker stacks..."
 docker compose down
 
