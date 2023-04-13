@@ -43,19 +43,6 @@ services:
     deploy:
       replicas: 1
 
-  #portainer:
-  #  image: portainer/portainer-ce:latest
-  #  restart: unless-stopped
-  #  security_opt:
-  #    - no-new-privileges:true
-  #  volumes:
-  #    - /etc/localtime:/etc/localtime:ro
-  #    - /var/run/docker.sock:/var/run/docker.sock:ro
-  #    - ./volumes/portainer:/data
-  #  ports:
-  #    - 8000:8000
-  #    - 9000:9000
-
 networks:
   service_network:
     external: true
