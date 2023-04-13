@@ -5,7 +5,7 @@ echo "----------------------------------------"
 echo "[INFO] START Laravel base env"
 
 echo "Stop docker stacks..."
-docker compose down
+docker stack rm base
 
 echo "Create network..."
 docker network create --driver overlay --attachable --scope swarm service_network || true
