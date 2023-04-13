@@ -19,7 +19,6 @@ services:
       replicas: 1
 
   redis:
-    restart: always
     tty: true
     image: redis:alpine
     ports:
@@ -33,7 +32,6 @@ services:
 
   meilisearch:
     image: getmeili/meilisearch:v1.0
-    restart: unless-stopped
     volumes:
       - ./volumes/meilisearch:/data.ms
     ports:
