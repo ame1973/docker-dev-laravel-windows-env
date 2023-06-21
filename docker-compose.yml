@@ -20,7 +20,7 @@ services:
   redis:
     restart: always
     tty: true
-    image: redis:alpine
+    image: redis:7.0.11-alpine3.18
     ports:
       - 6379:6379
     volumes:
@@ -37,6 +37,7 @@ services:
       - 7700:7700
     environment:
       - MEILI_NO_ANALYTICS
+      - MEILI_MASTER_KEY=master_key
     networks:
       - service_network
 
