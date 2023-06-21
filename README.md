@@ -6,7 +6,7 @@
 
 - [Docker Compose](https://docs.docker.com/compose/)
 
-## Features
+## Services
 
 - [Portainer](https://www.portainer.io/) (optional)
 
@@ -16,7 +16,11 @@
 
 - getmeili/meilisearch:v1.2
 
+## Features
 
+- [x] Backend Mysql database
+
+Reference `./backup/backup_db.sh.example`
 
 ## Usage
 
@@ -45,3 +49,4 @@
 
 - port: `9000`
 - url: `http://localhost:9000`
+
